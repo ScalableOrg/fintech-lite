@@ -49,6 +49,12 @@ async function debitAccount({
     };
   }
 
+  if (Number(account.balance) < amount) {
+    return {
+      success: false,
+      error: 'Insufficient balance',
+    };
+  }
   await models.accounts.increment(
     { balance: -amount }, { where: { id: account_id }, transaction: t },
   );
