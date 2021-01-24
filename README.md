@@ -1,5 +1,5 @@
 # fintech-lite
-I had an idea to built a basic fintech wallet on a series of livestream, sto this repository is where all the code will live.
+I had an idea to built a basic fintech wallet on a series of livestreams, so this repository is where all the code will live.
 
 # Disclaimer
 All the code here may not exactly be _production ready_. I'm building this during livestreams, so I'm doing just enough for people to get the concepts.
