@@ -1,5 +1,5 @@
 # fintech-lite
-I had an idea to built a basic digital bannk on a series of livestreams, so this repository is where all the code will live.
+I had an idea to build a basic digital bank on a series of livestreams, so this repository is where all the code will live.
 
 ## Disclaimer
 All the code here may not exactly be _production ready_. I'm building this during livestreams, so I'm doing just enough for people to get the concepts.
@@ -27,7 +27,7 @@ This will generate records in both the `users` table as well as `accounts` table
 
 
 ## Branches
-Branches are prperly named and created per feature. So to see the code for a particular feature, you can switch to the corresponding branch in the UI.
+Branches are properly named and created per feature. So to see the code for a particular feature, you can switch to the corresponding branch in the UI.
 ## Contributions
 
 ### Feature Requests
