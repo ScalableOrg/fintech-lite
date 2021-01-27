@@ -68,7 +68,7 @@ async function createUser(username, password) {
 async function deposit(account_id, amount) {
   const schema = joi.object({
     account_id: joi.number().required(),
-    amount: joi.number().required(),
+    amount: joi.number().min(1).required(),
   });
   const validation = schema.validate({ account_id, amount });
   if (validation.error) {
@@ -112,7 +112,7 @@ async function deposit(account_id, amount) {
 async function withdraw(account_id, amount) {
   const schema = joi.object({
     account_id: joi.number().required(),
-    amount: joi.number().required(),
+    amount: joi.number().min(1).required(),
   });
   const validation = schema.validate({ account_id, amount });
   if (validation.error) {
@@ -158,7 +158,7 @@ async function transfer(sender_id, recipient_id, amount) {
   const schema = joi.object({
     sender_id: joi.number().required(),
     recipient_id: joi.number().required(),
-    amount: joi.number().required(),
+    amount: joi.number().min(1).required(),
   });
   const validation = schema.validate({ sender_id, recipient_id, amount });
   if (validation.error) {
