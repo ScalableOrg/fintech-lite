@@ -1,7 +1,7 @@
 # fintech-lite
-I had an idea to built a basic fintech wallet on a series of livestreams, so this repository is where all the code will live.
+I had an idea to built a basic digital bannk on a series of livestreams, so this repository is where all the code will live.
 
-# Disclaimer
+## Disclaimer
 All the code here may not exactly be _production ready_. I'm building this during livestreams, so I'm doing just enough for people to get the concepts.
 
 ## Getting Started
@@ -23,4 +23,12 @@ createUser('johnlol', 'lololo').then(console.log).catch(console.log)
 ```
 This will generate records in both the `users` table as well as `accounts` table. 
 
-6. You can go ahead and test each transaction function.
+6. You can go ahead to test each transaction function.
+
+
+## Branches
+Branches are prperly named and created per feature. So to see the code for a particular feature, you can switch to the corresponding branch in the UI.
+## Contributions
+
+### Feature Requests
+You can suggest a feature by creating an issue and adding the label `request` to it.
