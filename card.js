@@ -1,3 +1,9 @@
+/**
+ * Test cards can be found here: https://paystack.com/docs/payments/test-payments
+ * Only PIN and OTP validation are implemented.
+ * You can also use the card that requires no validation
+ */
+
 const axios = require('axios').default;
 const dotenv = require('dotenv');
 const { creditAccount } = require('./helpers/transactions');
