@@ -20,7 +20,7 @@ function processInitialCardCharge(chargeResult) {
       message: chargeResult.data.status,
       data: {
         shouldCreditAccount: true,
-
+        reference: chargeResult.data.reference,
       },
     };
   }
