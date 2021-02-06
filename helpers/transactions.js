@@ -30,6 +30,7 @@ async function creditAccount({
     updated_at: Date.now(),
   }, {
     transaction: t,
+    lock: t.LOCK.UPDATE,
   });
   return {
     success: true,
@@ -71,6 +72,7 @@ async function debitAccount({
     updated_at: Date.now(),
   }, {
     transaction: t,
+    lock: t.LOCK.UPDATE,
   });
   return {
     success: true,

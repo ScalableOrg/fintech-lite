@@ -25,6 +25,9 @@ This will generate records in both the `users` table as well as `accounts` table
 
 6. You can go ahead to test each transaction function.
 
+### Note:
+To run basic wallet functionalities, run the functions in `app.js`.
+To run the card functions for debit and authorization, run the functions in `card.js`.
 
 ## Branches
 Branches are properly named and created per feature. So to see the code for a particular feature, you can switch to the corresponding branch in the UI.
