@@ -4,6 +4,8 @@ const dotenv = require('dotenv');
 const { v4 } = require('uuid');
 const models = require('./models');
 const { creditAccount, debitAccount } = require('./helpers/transactions');
+const { hashArguments } = require('./hash');
+const { checkRedisHash } = require('./redis');
 
 dotenv.config();
 
@@ -167,6 +169,16 @@ async function transfer(sender_id, recipient_id, amount) {
       error: validation.error.details[0].message,
     };
   }
+  const requestHash = hashArguments(sender_id, recipient_id, amount);
+
+  const redisCheckResult = await checkRedisHash(sender_id, requestHash);
+
+  if (!redisCheckResult.success) {
+    return {
+      success: false,
+      error: 'Duplicate transaction',
+    };
+  }
 
   const t = await models.sequelize.transaction();
   try {
@@ -192,6 +204,7 @@ async function transfer(sender_id, recipient_id, amount) {
         metadata: {
           sender_id,
         },
+        t,
       }),
     ]);
 
@@ -214,6 +227,8 @@ async function transfer(sender_id, recipient_id, amount) {
     };
   }
 }
+
+transfer(1, 2, 1000).then(console.log).catch(console.log);
 
 /**
  * @param {string} reference reference of the transaction to reverse

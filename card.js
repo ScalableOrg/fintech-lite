@@ -60,6 +60,7 @@ async function completeSuccessfulCharge({ accountId, reference, amount }) {
     message: 'Account successfully credited',
   };
 }
+
 async function chargeCard({
   accountId, pan, expiry_month, expiry_year, cvv, email, amount,
 }) {
@@ -78,7 +79,6 @@ async function chargeCard({
         Authorization: `Bearer ${process.env.PAYSTACK_SECRET_KEY}`,
       },
     });
-
     const nextAction = processInitialCardCharge(charge.data);
     await models.card_transactions.create({
       external_reference: nextAction.data.reference,
@@ -302,3 +302,30 @@ async function submitPhone({
     return error.response ? error.response.data : error;
   }
 }
+
+async function chargeCardWithAuthorization(authorization) {
+  const charge = await axios.post(PAYSTACK_BASE_URL, {
+    authorization_code: authorization,
+    amount: 10000,
+    email: 'jack@jill.com',
+  }, {
+    headers: {
+      Authorization: `Bearer ${process.env.PAYSTACK_SECRET_KEY}`,
+    },
+  });
+  return {
+    success: true,
+    data: charge.data.data,
+  };
+}
+
+chargeCardWithAuthorization('AUTH_zev61rikmn').then(console.log).catch(console.log);
+// chargeCard({
+//   accountId: 1,
+//   pan: '506066506066506067',
+//   amount: 1000000,
+//   cvv: '060',
+//   email: 'jack@jill.com',
+//   expiry_month: '12',
+//   expiry_year: '25',
+// }).then(console.log).catch(console.log);
