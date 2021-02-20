@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "migrate": "sequelize db:migrate",
     "migrate:undo": "sequelize db:migrate:undo",
-    "migrate:undo:all": "sequelize db:migrate:undo:all"
+    "migrate:undo:all": "sequelize db:migrate:undo:all",
+    "seed": "sequelize db:seed:all"
   },
   "keywords": [
     "wallet",
@@ -22,6 +23,7 @@
     "dotenv": "^8.2.0",
     "joi": "^17.3.0",
     "mysql2": "^2.2.5",
+    "redis": "^3.0.2",
     "sequelize": "^6.3.5",
     "sequelize-cli": "^6.2.0",
     "uuid": "^8.3.2"
